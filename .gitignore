@@ -4,3 +4,6 @@ DS_Store
 *.a
 *.out
 pipex
+infile
+outfile
+pipex-tester

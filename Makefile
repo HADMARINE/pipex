@@ -6,7 +6,7 @@
 #    By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 12:26:43 by lhojoon           #+#    #+#              #
-#    Updated: 2023/12/12 21:49:03 by lhojoon          ###   ########.fr        #
+#    Updated: 2023/12/13 12:11:48 by lhojoon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ DIR = srcs
 SRCS_RAW =	main.c \
 			read_file.c \
 			execute.c \
-			error.c
+			error.c \
+			clean.c \
+			childs.c
 SRCS = $(addprefix $(DIR)/,$(SRCS_RAW))
 OBJS = $(SRCS:c=o)
 INCLUDES = -I./includes -I./libft
