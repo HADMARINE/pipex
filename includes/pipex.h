@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:29:19 by lhojoon           #+#    #+#             */
-/*   Updated: 2023/12/13 12:11:03 by lhojoon          ###   ########.fr       */
+/*   Updated: 2023/12/22 15:17:07 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,7 @@ void	free_parent_process(t_pvars *v);
 void	first_child(t_pvars *v, char *argv[], char *envp[]);
 void	second_child(t_pvars *v, char *argv[], char *envp[]);
 char	*getcmd(char **paths, char *cmd);
+void	close_files(t_pvars *v);
+void	free_ftsplit(char **sa);
 
 #endif

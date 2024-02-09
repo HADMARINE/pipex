@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 14:49:53 by lhojoon           #+#    #+#             */
-/*   Updated: 2024/02/05 15:52:32 by lhojoon          ###   ########.fr       */
+/*   Updated: 2023/11/28 16:11:11 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*lp;
 	t_list	*lp2;
 
-	if (!lst)
+	if (!lst || !del)
 		return ;
 	lp = *lst;
 	while (lp)
