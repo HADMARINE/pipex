@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:29:19 by lhojoon           #+#    #+#             */
-/*   Updated: 2023/12/22 15:17:07 by lhojoon          ###   ########.fr       */
+/*   Updated: 2024/02/09 18:15:41 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 
 // Defines
 
-typedef struct s_pvars {
+typedef struct s_pvars
+{
 	int		infile;
 	int		outfile;
 	int		tube[2];
