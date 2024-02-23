@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:43:02 by lhojoon           #+#    #+#             */
-/*   Updated: 2023/12/13 12:11:30 by lhojoon          ###   ########.fr       */
+/*   Updated: 2024/02/24 00:21:34 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ bool	init_pipe(t_pvars *v)
 	return (true);
 }
 
-char	*get_path(char *envp[])
+char	*get_path(char *envp[], char *env)
 {
-	while (ft_strncmp("PATH", *envp, 4))
+	while (ft_strncmp(env, *envp, ft_strlen(env)))
 		envp++;
-	return (*envp + 5);
+	return (*envp + (ft_strlen(env) + 1));
 }
 
 bool	init_processes(t_pvars *v, char *argv[], char *envp[])
@@ -58,11 +58,17 @@ bool	init_processes(t_pvars *v, char *argv[], char *envp[])
 	return (true);
 }
 
-char	*getcmd(char **paths, char *cmd)
+char	*getcmd(char **paths, char *cmd, char *envp[])
 {
 	char	*tmp;
 	char	*c;
 
+	if (ft_strncmp(cmd, "./", 2) == 0)
+	{
+		tmp = ft_strjoin_many(3, get_path(envp, "HOME"), "/", cmd);
+		if (access(cmd, 0) == 0)
+			return (cmd);
+	}
 	while (*paths)
 	{
 		tmp = ft_strjoin(*paths, "/");

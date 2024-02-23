@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:29:19 by lhojoon           #+#    #+#             */
-/*   Updated: 2024/02/09 18:15:41 by lhojoon          ###   ########.fr       */
+/*   Updated: 2024/02/24 00:21:48 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,13 @@ int		msg_error(char *e);
 bool	init_files(char infile[], char outfile[], t_pvars *v);
 bool	init_pipe(t_pvars *v);
 bool	init_processes(t_pvars *v, char *argv[], char *envp[]);
-char	*get_path(char *envp[]);
+char	*get_path(char *envp[], char *env);
 void	close_pipes(t_pvars *v);
 void	free_child_process(t_pvars *v);
 void	free_parent_process(t_pvars *v);
 void	first_child(t_pvars *v, char *argv[], char *envp[]);
 void	second_child(t_pvars *v, char *argv[], char *envp[]);
-char	*getcmd(char **paths, char *cmd);
+char	*getcmd(char **paths, char *cmd, char *envp[]);
 void	close_files(t_pvars *v);
 void	free_ftsplit(char **sa);
 

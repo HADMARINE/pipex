@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 10:42:11 by lhojoon           #+#    #+#             */
-/*   Updated: 2023/12/22 15:14:04 by lhojoon          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:07:56 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,6 @@ void	free_child_process(t_pvars *v)
 
 void	free_parent_process(t_pvars *v)
 {
-	int	i;
-
-	i = 0;
 	close_files(v);
 	free_ftsplit(v->cmdpaths);
 }

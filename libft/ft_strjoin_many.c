@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_strjoin_many.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 14:49:53 by lhojoon           #+#    #+#             */
-/*   Updated: 2024/02/05 15:52:32 by lhojoon          ###   ########.fr       */
+/*   Created: 2024/02/12 11:47:57 by lhojoon           #+#    #+#             */
+/*   Updated: 2024/02/12 12:05:57 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+char	*ft_strjoin_many(int num, ...)
 {
-	t_list	*lp;
-	t_list	*lp2;
+	va_list	valist;
+	char	*s;
+	char	*ts;
+	int		i;
 
-	if (!lst)
-		return ;
-	lp = *lst;
-	while (lp)
+	va_start(valist, num);
+	if (num == 1)
 	{
-		if (del != NULL)
-			del(lp->content);
-		lp2 = lp->next;
-		free(lp);
-		lp = lp2;
+		ts = NULL;
+		s = va_arg(valist, char *);
+		ft_strlcpy(ts, s, ft_strlen(s));
+		return (s);
 	}
-	*lst = NULL;
+	i = 1;
+	s = va_arg(valist, char *);
+	while (i < num)
+	{
+		ts = ft_strjoin(s, va_arg(valist, char *));
+		if (i != 1)
+			free(s);
+		s = ts;
+		i++;
+	}
+	return (s);
 }
