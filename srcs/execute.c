@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:43:02 by lhojoon           #+#    #+#             */
-/*   Updated: 2024/03/01 17:28:56 by lhojoon          ###   ########.fr       */
+/*   Updated: 2024/03/01 17:56:23 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,6 @@ char	*getcmd(char **paths, char *cmd, char *envp[])
 	char	*tmp;
 	char	*c;
 
-	if (ft_strncmp(cmd, "./", 2) == 0)
-	{
-		tmp = ft_strjoin_many(3, get_path(envp, "HOME"), "/", cmd);
-		if (access(cmd, 0) == 0)
-			return (cmd);
-	}
 	while (*paths)
 	{
 		tmp = ft_strjoin(*paths, "/");
@@ -83,3 +77,12 @@ char	*getcmd(char **paths, char *cmd, char *envp[])
 	}
 	return (NULL);
 }
+
+
+	// if (ft_strncmp(cmd, "./", 2) == 0)
+	// {
+	// 	tmp = ft_strjoin_many(3, get_path(envp, "HOME"), "/", cmd + 2);
+	// 	perror(tmp);
+	// 	if (access(cmd, 0) == 0)
+	// 		return (cmd);
+	// }

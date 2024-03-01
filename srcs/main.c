@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:29:12 by lhojoon           #+#    #+#             */
-/*   Updated: 2024/03/01 17:26:30 by lhojoon          ###   ########.fr       */
+/*   Updated: 2024/03/01 17:51:37 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ int	main(int argc, char *argv[], char *envp[])
 		return (close_files(&v), EXIT_FAILURE);
 	if (envp == NULL)
 		return (close_files(&v), close_pipes(&v), EXIT_FAILURE);
-	v.paths = get_path(envp);
+	v.paths = get_path(envp, "PATH");
 	if (!v.paths)
-		return (close_files(&v), close_pipes(&v),
-			EXIT_FAILURE);
+		return (close_files(&v), close_pipes(&v), EXIT_FAILURE);
 	v.cmdpaths = ft_split(v.paths, ':');
 	if (!v.cmdpaths)
 		return (close_files(&v), close_pipes(&v), EXIT_FAILURE);
