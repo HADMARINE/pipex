@@ -6,7 +6,7 @@
 /*   By: lhojoon <lhojoon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:43:02 by lhojoon           #+#    #+#             */
-/*   Updated: 2024/02/24 00:21:34 by lhojoon          ###   ########.fr       */
+/*   Updated: 2024/03/01 17:28:56 by lhojoon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ bool	init_pipe(t_pvars *v)
 
 char	*get_path(char *envp[], char *env)
 {
-	while (ft_strncmp(env, *envp, ft_strlen(env)))
+	while (*envp && ft_strncmp(env, *envp, ft_strlen(env)))
 		envp++;
-	return (*envp + (ft_strlen(env) + 1));
+	if (*envp)
+		return (*envp + ft_strlen(env) + 1);
+	return (NULL);
 }
 
 bool	init_processes(t_pvars *v, char *argv[], char *envp[])
